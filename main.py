@@ -1,11 +1,12 @@
 import os
+import pandas as pd
 
-path = r"C:\Users\payal\.cache\kagglehub\datasets\wyattowalsh\basketball"
+BASE_PATH = r"C:\Users\payal\Downloads\archive"
 
-print("Folder exists:", os.path.exists(path))
+advanced = pd.read_csv(os.path.join(BASE_PATH, "Player Advanced.csv"))
+all_star = pd.read_csv(os.path.join(BASE_PATH, "All-Star Selections.csv"))
+draft = pd.read_csv(os.path.join(BASE_PATH, "Draft History.csv"))
 
-if os.path.exists(path):
-    for root, dirs, files in os.walk(path):
-        print(root)
-        for file in files:
-            print("   ", file)
+print(advanced.head())
+print(all_star.head())
+print(draft.head())
